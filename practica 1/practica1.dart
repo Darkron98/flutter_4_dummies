@@ -1,7 +1,5 @@
  main(){
   //ternarios
-  Empleado empleado1 = new Empleado();
-  empleado1.cargo = 'secretario';
   int? n1 = null;
   int n2 = 2;
   var ternario = n1 == n2 ? 'ok' : ':c';
@@ -26,11 +24,7 @@
   List<dynamic> lista2; // otra definicion de lista dinamica
   List<int> staticList = [1,2,3,5]; // lista estatica
   print('hola');
-  funcion(n1:1 ,n2: 2, 2);
  }
-
- void funcion(int n3,{int? n1, int? n2}){}
-
  class Empleado{
   //atributos
   final int id;
@@ -45,9 +39,5 @@
     this.salario = 0, 
     this.cargo = '',
     });
-
-  set cargo(String cargo){
-    this.cargo = cargo;
-  }
  }
 
