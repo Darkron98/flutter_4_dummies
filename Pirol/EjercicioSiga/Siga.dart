@@ -1,5 +1,4 @@
-import 'dart:math';
-
+import 'dart:io';
 import 'Estudiante.dart';
 import 'Util.dart';
 
@@ -18,17 +17,24 @@ class Siga{
 
   void leerInfo(){
     for(int i = 0; i < arreglo.length; i++){
-      arreglo[i].codigo;
-      arreglo[i].codPlan;
-      arreglo[i].nombre;
-      arreglo[i].apellido;
-      arreglo[i].notas;
+      arreglo[i].codigo = Util().leerInt("Digite el codigo:\n");
+      arreglo[i].codPlan = Util().leerInt("Digite el codigo de la materia:\n");
+      print('Ingrese el nombre del estudiante:\n');
+      arreglo[i].nombre = stdin.readLineSync(); 
+      print('Ingrese el apellido del estudiante:\n');
+      arreglo[i].apellido = stdin.readLineSync();
+      List<double> temp = [];
+      for( int i = 0; i < 3; i++){
+        temp[i] = Util().leerDouble("Digite la nota ${i+1}");
+      }
+      temp[3] = temp[0] * 0.3 + temp[1] * 0.3 + temp[2] * 0.4;
+      arreglo[i].notas = temp;
     }
   }
 
   void verListado(){
     for(int i = 0; i < arreglo.length; i++){
-      print('${arreglo[i]} \n');
+      print('${arreglo[i]}\n');
     }
   }
 
@@ -38,7 +44,7 @@ class Siga{
     for(int i = 0; i < arreglo.length; i++){
       if(codBuscar == arreglo[i].codigo){
         existe = true;
-        print(e);
+        print(arreglo[i]);
         break;
       }
     }
